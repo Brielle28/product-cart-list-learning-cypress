@@ -26,17 +26,17 @@ const ProductMapping = () => {
   };
 
   return (
-    <div className="w-[66%] flex flex-col items-start justify-center gap-5">
+    <div className="w-full md:w-[66%] flex flex-col items-start justify-center gap-5">
       <h1 className="text-black text-[30px] font-bold">Desserts</h1>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 flex-col items-center justify-center">
         {data.map((product) => (
           <div 
             key={product.id} 
-            className="flex flex-col items-start justify-center"
+            className="flex flex-col items-start justify-center w-full sm:w-full"
           >
             <div
               style={{ backgroundImage: `url(${product.image})` }}
-              className={`flex items-center justify-center relative w-[200px] h-[200px] bg-cover bg-center rounded-[10px] mb-4 ${toggleStates[product.id] ? 'border-2 border-orange-600' : ''}`}
+              className={`flex items-center justify-center relative w-full h-[200px] bg-cover bg-center rounded-[10px] mb-4 ${toggleStates[product.id] ? 'border-2 border-orange-600' : ''}`}
             >
               {!toggleStates[product.id] ? (
                 <button

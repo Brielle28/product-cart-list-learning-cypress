@@ -9,13 +9,13 @@ const AddToCart = () => {
     useContext(UserContext);
 
   return (
-    <div className="w-[30%] flex flex-col items-start justify-center bg-white rounded-[10px] p-[20px]">
+    <div className="w-full sm:w-[30%] flex flex-col items-start justify-center bg-white rounded-[10px] p-[20px]">
       <div>
         <h2 className="text-red-700 font-bold font-poppins text-[30px]">
           Your cart ({itemsInCart.length})
         </h2>
       </div>
-      <div className="flex flex-col items-center justify-center mt-5 ml-3 w-[95%]">
+      <div className="flex flex-col items-center justify-center mt-5 ml-3 w-full">
         {itemsInCart.length === 0 ? (
           <>
             <img
@@ -61,7 +61,6 @@ const AddToCart = () => {
                   {totalPrice.toFixed(2)}
                 </p>
               </div>
-              {/* You can open the modal using document.getElementById('ID').showModal() method */}
               <button
                 className="mt-4 bg-orange-600 text-white py-2 px-16 rounded-[20px]"
                 onClick={() =>
@@ -80,28 +79,3 @@ const AddToCart = () => {
 };
 
 export default AddToCart;
-
-{
-  /*
-   */
-}
-
-{
-  /* <div
-key={idx}
-className="mb-4 w-full flex flex-row items-center justify-between bg-slate-100 px-[10px] py-[5px]"
->
-<img
-  src={product.image}
-  alt={product.name}
-  className="w-[70px] rounded-[10px]"
-/>
-<h3 className="text-black text-[12px] font-serif">
-  {product.name}
-</h3>
-<p className="flex items-start justify-start text-red-600 text-[12px]">
-  <BsCurrencyDollar className="mt-1 text-[12px]" />{" "}
-  {product.price.toFixed(2)}{" "}
-</p> */
-}
-// </div>
