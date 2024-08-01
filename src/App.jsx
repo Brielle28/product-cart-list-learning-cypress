@@ -1,11 +1,14 @@
-import Home from "../src/pages/Home"
-function App() {
+// src/App.js
+import React from "react";
+import Home from "./pages/Home";
+import UserProvider from "./components/Context/UserProvider";
 
+function App() {
   return (
-  <>
-  <Home/>
-  </>
-  )
+    <UserProvider>
+      <Home />
+    </UserProvider>
+  );
 }
 
-export default App
+export default App;
