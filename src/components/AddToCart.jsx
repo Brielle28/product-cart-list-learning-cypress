@@ -5,18 +5,8 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import OrderConfirmation from "./OrderConfirmation";
 
 const AddToCart = () => {
-  const { itemsInCart, DecrementClick } = useContext(UserContext);
-
-  // Function to calculate the total price of items in the cart
-  const calculateTotalPrice = () => {
-    return itemsInCart.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
-  };
-
-  // Calculate total price
-  const totalPrice = calculateTotalPrice();
+  const { itemsInCart, DecrementClick, calculateTotalPrice, totalPrice } =
+    useContext(UserContext);
 
   return (
     <div className="w-[30%] flex flex-col items-start justify-center bg-white rounded-[10px] p-[20px]">
@@ -73,19 +63,14 @@ const AddToCart = () => {
               </div>
               {/* You can open the modal using document.getElementById('ID').showModal() method */}
               <button
-              className="mt-4 bg-orange-600 text-white py-2 px-16 rounded-[20px]"
+                className="mt-4 bg-orange-600 text-white py-2 px-16 rounded-[20px]"
                 onClick={() =>
                   document.getElementById("my_modal_3").showModal()
                 }
               >
                 Confirm Order
               </button>
-              <OrderConfirmation/>
-              {/* <button 
-              className="mt-4 bg-orange-600 text-white py-2 px-16 rounded-[20px]"
-              >
-                Confirm Order
-              </button> */}
+              <OrderConfirmation />
             </div>
           </>
         )}

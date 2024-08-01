@@ -28,7 +28,10 @@ const UserProvider = ({ children }) => {
         .map((item) => {
           if (item.id === itemId) {
             // Reduce the quantity of the item, but ensure it doesn't go below 0
-            const updatedQuantity = Math.max(item.quantity - quantityToRemove, 0);
+            const updatedQuantity = Math.max(
+              item.quantity - quantityToRemove,
+              0
+            );
             return { ...item, quantity: updatedQuantity };
           }
           return item;
@@ -59,17 +62,28 @@ const UserProvider = ({ children }) => {
     });
   };
 
+  // Function to calculate the total price of items in the cart
+  const calculateTotalPrice = () => {
+    return itemsInCart.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  };
+
+  // Calculate total price
+  const totalPrice = calculateTotalPrice();
+
   const value = {
     itemsInCart,
     AddToCart,
     IncrementClick,
     DecrementClick,
     removeFromCart,
+    calculateTotalPrice,
+    totalPrice,
   };
 
-  return (
-    <UserContext.Provider value={value}>{children}</UserContext.Provider>
-  );
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 
 export default UserProvider;
