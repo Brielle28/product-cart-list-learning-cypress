@@ -9,7 +9,7 @@ const AddToCart = () => {
     useContext(UserContext);
 
   return (
-    <div className="w-full sm:w-[30%] flex flex-col items-start justify-center bg-white rounded-[10px] p-[20px]">
+    <div className="orderconfirmation w-full sm:w-[30%] flex flex-col items-start justify-center bg-white rounded-[10px] p-[20px]">
       <div>
         <h2 className="text-red-700 font-bold font-poppins text-[30px]">
           Your cart ({itemsInCart.length})
