@@ -1,9 +1,15 @@
 import React, { useContext } from "react";
 import { UserContext } from "./Context/UserProvider";
 import { BsCurrencyDollar } from "react-icons/bs";
+import ThankYou from "./ThankYou";
 
 const OrderConfirmation = () => {
   const { itemsInCart, totalPrice } = useContext(UserContext);
+
+  const handleStartOrder = () => {
+    document.getElementById("my_modal_5").showModal();
+    document.getElementById("my_modal_3").close();
+  };
 
   return (
     <>
@@ -44,12 +50,12 @@ const OrderConfirmation = () => {
                     {product.name}
                   </h3>
                   <div className="flex items-start justify-center gap-2">
-                      <h3 className="text-[12px]">{product.quantity}X</h3>
-                      <p className="flex items-start justify-start text-gray-600 text-[12px]">
-                        <BsCurrencyDollar className="mt-[3px] text-[12px]" />{" "}
-                        {(product.price * product.quantity).toFixed(2)}
-                      </p>
-                    </div>
+                    <h3 className="text-[12px]">{product.quantity}X</h3>
+                    <p className="flex items-start justify-start text-gray-600 text-[12px]">
+                      <BsCurrencyDollar className="mt-[3px] text-[12px]" />{" "}
+                      {(product.price * product.quantity).toFixed(2)}
+                    </p>
+                  </div>
                 </div>
                 <p className="flex items-start justify-start text-gray-600 text-[12px]">
                   <BsCurrencyDollar className="mt-[3px] text-[12px]" />{" "}
@@ -65,9 +71,13 @@ const OrderConfirmation = () => {
               </p>
             </div>
           </div>
-          <button className="mt-[30px] bg-orange-600 text-white py-[10px] px-16 rounded-[20px] w-full">
+          <button
+            className=" mt-[30px] bg-orange-600 text-white py-[10px] px-16 rounded-[20px] w-full"
+            onClick={handleStartOrder}
+          >
             Start Order
           </button>
+          <ThankYou/> 
         </div>
       </dialog>
     </>
