@@ -26,9 +26,9 @@ const ProductMapping = () => {
   };
 
   return (
-    <div className="w-full md:w-[66%] flex flex-col items-start justify-center gap-5">
+    <div className="productmapping w-full md:w-[66%] flex flex-col items-start justify-center gap-5">
       <h1 className="text-black text-[30px] font-bold">Desserts</h1>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 flex-col items-center justify-center">
+      <div className="productmapping grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 flex-col items-center justify-center">
         {data.map((product) => (
           <div 
             key={product.id} 
@@ -36,29 +36,30 @@ const ProductMapping = () => {
           >
             <div
               style={{ backgroundImage: `url(${product.image})` }}
-              className={`flex items-center justify-center relative w-full h-[200px] bg-cover bg-center rounded-[10px] mb-4 ${toggleStates[product.id] ? 'border-2 border-orange-600' : ''}`}
+              className={`add flex items-center justify-center relative w-full h-[200px] bg-cover bg-center rounded-[10px] mb-4 ${toggleStates[product.id] ? 'border-2 border-orange-600' : ''}`}
             >
               {!toggleStates[product.id] ? (
                 <button
-                  className="flex flex-row items-center justify-center gap-[5px] bg-white mt-[190px] py-[5px] px-[18px] rounded-[35px] border-2 border-gray-300"
+                  className=" flex flex-row items-center justify-center gap-[5px] bg-white mt-[190px] py-[5px] px-[18px] rounded-[35px] border-2 border-gray-300"
                   onClick={() => AddToCartHandler(product)}
                 >
                   <img src="/images/icon-add-to-cart.svg" alt="icon-add-to-cart" />
                   <h5 className="text-black font-bold text-[15px]">Add to cart</h5>
                 </button>
               ) : (
-                <div className="flex flex-row items-center justify-between gap-[5px] bg-orange-600 mt-[190px] py-[5px] px-[15px] rounded-[35px] w-[73%]">
+                <div className="cart-item flex flex-row items-center justify-between gap-[5px] bg-orange-600 mt-[190px] py-[5px] px-[15px] rounded-[35px] w-[73%]">
                   <button
                     onClick={() => DecrementClick(product.id)}
-                    className="flex items-center justify-center bg-orange-600 text-white size-5 rounded-[50px] border-2 border-white"
+                    className="decrement-btn flex items-center justify-center bg-orange-600 text-white size-5 rounded-[50px] border-2 border-white"
                   >
                     -
                   </button>
-                  <span className="mx-2 text-white">{getQuantity(product.id)}</span>
+                  <span className="quantity mx-2 text-white">{getQuantity(product.id)}</span>
                   <button
                     onClick={() => IncrementClick(product.id)}
-                    className="flex items-center justify-center bg-orange-600 text-white size-5 rounded-[50px] border-2 border-white"
+                    className="increment-btn flex items-center justify-center bg-orange-600 text-white size-5 rounded-[50px] border-2 border-white"
                   >
+                    
                     +
                   </button>
                 </div>

@@ -72,7 +72,7 @@ const OrderConfirmation = () => {
             </div>
           </div>
           <button
-            className=" mt-[30px] bg-orange-600 text-white py-[10px] px-16 rounded-[20px] w-full"
+            className="startorder mt-[30px] bg-orange-600 text-white py-[10px] px-16 rounded-[20px] w-full"
             onClick={handleStartOrder}
           >
             Start Order
